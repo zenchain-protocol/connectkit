@@ -70,6 +70,8 @@ export const useWallets = (): WalletProps[] => {
     return c;
   });
 
+  console.log(wallets);
+
   return (
     wallets
       // remove duplicate ids
@@ -104,6 +106,14 @@ export const useWallets = (): WalletProps[] => {
             self.find(
               (w) => w.id === 'io.metamask' || w.id === 'io.metamask.mobile'
             )
+          )
+      )
+      // remove wallet with id BitgetWallet if it exists as recently used
+      .filter(
+        (wallet, index, self) =>
+          !(
+            wallet.id === 'com.bitget.web3' &&
+            self.find((w) => w.id === 'bitgetDefault')
           )
       )
       // order by isInstalled injected connectors first
