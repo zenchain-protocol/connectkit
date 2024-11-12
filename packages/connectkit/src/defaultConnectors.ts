@@ -40,6 +40,24 @@ const defaultConnectors = ({
 
   // Add the rest of the connectors
   connectors.push(
+    injected({
+      target: {
+        id: "bitgetDefault",
+        name: "Bitget Wallet",
+        icon: "https://raw.githubusercontent.com/bitgetwallet/download/refs/heads/main/logo/svg/bitget%20wallet_Transparent_circle%201.svg",
+        provider: (window) => {
+          if (window) {
+            const ethereum = window['bitkeep']?.ethereum;
+            if (!ethereum || !ethereum.isBitKeep) return undefined;
+            // Brave tries to make itself look like BitKeep
+            // Could also try RPC `web3_clientVersion` if following is unreliable
+            if (ethereum.isBraveWallet && !ethereum._events && !ethereum._state) return undefined;
+            if (ethereum.isTokenPocket) return undefined;
+            if (ethereum.isTokenary) return undefined;
+            return ethereum;
+          }
+          return undefined;
+      }}}),
     injected({ target: 'metaMask' }),
     coinbaseWallet({
       appName: app.name,
