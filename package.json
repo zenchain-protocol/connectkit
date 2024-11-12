@@ -1,9 +1,8 @@
 {
-  "name": "family-connectkit",
-  "version": "0.0.0",
+  "name": "family-connectkit-zenchain",
+  "version": "0.0.1",
   "description": "Family ConnectKit.",
   "main": "packages/connectkit/src/index.ts",
-  "private": true,
   "workspaces": [
     "packages/*",
     "examples/*"

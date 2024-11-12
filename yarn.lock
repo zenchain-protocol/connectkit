@@ -9690,9 +9690,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"family-connectkit@workspace:.":
+"family-connectkit-zenchain@workspace:.":
   version: 0.0.0-use.local
-  resolution: "family-connectkit@workspace:."
+  resolution: "family-connectkit-zenchain@workspace:."
   dependencies:
     "@changesets/cli": ^2.24.4
     "@rollup/plugin-node-resolve": ^13.1.3
